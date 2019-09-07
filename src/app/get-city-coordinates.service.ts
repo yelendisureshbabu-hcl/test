@@ -1,26 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { url } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GetCityCoordinatesService {
-  apiURL: string = 'http://www.datasciencetoolkit.org/maps/api/geocode/json?sensor=false&address=';
-  lat: any;
-  lng: any;
-  private empDetailSubject = new BehaviorSubject(null);
+  apiURL: string = url;
 
   constructor(private httpClient: HttpClient) { }
-
-  public setCoordinates(cityName: string) {
-    console.log("city name in s", cityName, `${this.apiURL}` + cityName)
+  getCoordinates(cityName: string) {
     return this.httpClient.get(`${this.apiURL}` + cityName);
   }
-  getCoordinates() {
-    return this.empDetailSubject.asObservable();
-  }
-
-
 }

@@ -12,13 +12,12 @@ export class AppComponent {
   lat: any;
   lng: any;
 
-
-  constructor(private GetCityCoordinatesService: GetCityCoordinatesService,private cd: ChangeDetectorRef) {
+  constructor(private GetCityCoordinatesService: GetCityCoordinatesService) {
 
   }
 
   onSubmit() {
-    this.GetCityCoordinatesService.setCoordinates(this.model.cityName).subscribe((res: any) => {
+    this.GetCityCoordinatesService.getCoordinates(this.model.cityName).subscribe((res: any) => {
       console.log("res", res.results[0].geometry.location);
         this.lat = res.results[0].geometry.location.lat;
         this.lng = res.results[0].geometry.location.lng;             

@@ -19,9 +19,9 @@
                 </form>
             </div>
         </div>
-        
+
         <hr />
-        <div *ngIf="lat">
+        <div *ngIf="lat&&lng">
             <app-display-component [latitude]="lat" [longitude]="lng">
 
             </app-display-component>

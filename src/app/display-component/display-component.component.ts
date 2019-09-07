@@ -1,25 +1,16 @@
-import { Component, OnInit, Input, SimpleChange, SimpleChanges } from '@angular/core';
-import { GetCityCoordinatesService } from '../get-city-coordinates.service';
+import { Component,Input} from '@angular/core';
 
 @Component({
   selector: 'app-display-component',
   templateUrl: './display-component.component.html',
   styleUrls: ['./display-component.component.css']
 })
-export class DisplayComponentComponent implements OnInit {
-  @Input() latitude: any;
-  @Input() longitude: any;
+export class DisplayComponentComponent {
+  @Input() latitude: number;
+  @Input() longitude: number;
 
-  constructor(private GetCityCoordinatesService: GetCityCoordinatesService) {
-
-
-  }
-
-  ngOnInit() {
+  constructor() {
 
   }
-  ngOnChanges(changes: SimpleChanges) {
-    console.log("changes", changes)
 
-  }
 }
