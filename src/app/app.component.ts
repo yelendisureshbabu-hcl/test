@@ -11,20 +11,19 @@ export class AppComponent {
   model: any = {};
   lat: any;
   lng: any;
-
+  cityError: string;
   constructor(private GetCityCoordinatesService: GetCityCoordinatesService) {
 
   }
 
   onSubmit() {
     this.GetCityCoordinatesService.getCoordinates(this.model.cityName).subscribe((res: any) => {
-      console.log("res", res.results[0].geometry.location);
-        this.lat = res.results[0].geometry.location.lat;
-        this.lng = res.results[0].geometry.location.lng;             
+      this.lat = res.results[0].geometry.location.lat;
+      this.lng = res.results[0].geometry.location.lng;
 
     },
       (error) => {
-        console.log("error", error);
+        this.cityError = "invalid city name,Please give valid city name";
 
       }
     );

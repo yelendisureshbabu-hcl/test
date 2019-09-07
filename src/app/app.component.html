@@ -19,12 +19,13 @@
                 </form>
             </div>
         </div>
-
+        <div *ngIf="lat&&lng">
+            {{cityError}}
+        </div>
         <hr />
         <div *ngIf="lat&&lng">
-            <app-display-component [latitude]="lat" [longitude]="lng">
-
-            </app-display-component>
+            <app-coordinates-component [latitude]="lat" [longitude]="lng">
+            </app-coordinates-component>
         </div>
 
     </div>

@@ -4,13 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DisplayComponentComponent } from './display-component/display-component.component';
-
+import { DisplayCoordianteComponent } from './display-component/coordiantes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DisplayComponentComponent
+    DisplayCoordianteComponent
   ],
   imports: [
     BrowserModule,
