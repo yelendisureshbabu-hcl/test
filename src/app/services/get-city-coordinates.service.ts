@@ -8,7 +8,6 @@ import { url } from 'src/environments/environment';
 
 export class GetCityCoordinatesService {
   apiURL: string = url;
-
   constructor(private httpClient: HttpClient) { }
   getCoordinates(cityName: string) {
     return this.httpClient.get(`${this.apiURL}` + cityName);

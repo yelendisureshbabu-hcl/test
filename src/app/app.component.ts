@@ -8,10 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   lat: any;
   lng: any;
-
-  constructor() {
-
-  }
+  
   receiveCoordinates($event) {
     this.lat = $event.lat;
     this.lng = $event.lng;

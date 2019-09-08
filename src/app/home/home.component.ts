@@ -1,7 +1,7 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 import { GetCityCoordinatesService } from '../services/get-city-coordinates.service';
-
+import { cityError } from '../../constants';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +13,8 @@ export class HomeComponent {
   lat: any;
   lng: any;
   cityError: string;
-  @Output() receiveCoordinatesEvent = new EventEmitter<{"lat":any,"lng":any}>();
+  @Output() receiveCoordinatesEvent = new EventEmitter<{ "lat": any, "lng": any }>();
   constructor(private GetCityCoordinatesService: GetCityCoordinatesService) { }
-
 
   onSubmit() {
     this.GetCityCoordinatesService.getCoordinates(this.model.cityName).subscribe((res: any) => {
@@ -29,14 +28,12 @@ export class HomeComponent {
       if (res.status === "ZERO_RESULTS") {
         this.lat = null;
         this.lng = null;
-        this.cityError = "invalid city name,Please give valid city name";
+        this.cityError = cityError;
         this.receiveCoordinatesEvent.emit({ "lat": this.lat, "lng": this.lng });
       }
-
     },
       (error) => {
-        this.cityError = "invalid city name,Please give valid city name";
-
+        this.cityError = cityError;
       }
     );
 

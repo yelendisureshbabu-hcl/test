@@ -1,0 +1,1 @@
+export const cityError = "invalid city name,Please give valid city name";
