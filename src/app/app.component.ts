@@ -1,5 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { GetCityCoordinatesService } from './get-city-coordinates.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,26 +6,16 @@ import { GetCityCoordinatesService } from './get-city-coordinates.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  model: any = {};
   lat: any;
   lng: any;
-  cityError: string;
-  constructor(private GetCityCoordinatesService: GetCityCoordinatesService) {
+
+  constructor() {
 
   }
-
-  onSubmit() {
-    this.GetCityCoordinatesService.getCoordinates(this.model.cityName).subscribe((res: any) => {
-      this.lat = res.results[0].geometry.location.lat;
-      this.lng = res.results[0].geometry.location.lng;
-
-    },
-      (error) => {
-        this.cityError = "invalid city name,Please give valid city name";
-
-      }
-    );
-
+  receiveCoordinates($event) {
+    console.log($event)
+    this.lat = $event.lat;
+    this.lng = $event.lng;
   }
+
 }

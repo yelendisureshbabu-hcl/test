@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-8">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="cityName">City Name</label>
+                <input type="text" class="form-control" name="cityName" [(ngModel)]="model.cityName"
+                    #cityName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cityName.invalid }"
+                    required />
+                <div *ngIf="f.submitted && cityName.invalid" class="invalid-feedback">
+                    <div *ngIf="cityName.errors.required">City Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div *ngIf="cityError">
+    {{cityError}}
+</div>
+<hr />
