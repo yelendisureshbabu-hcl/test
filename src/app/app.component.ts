@@ -13,7 +13,6 @@ export class AppComponent {
 
   }
   receiveCoordinates($event) {
-    console.log($event)
     this.lat = $event.lat;
     this.lng = $event.lng;
   }

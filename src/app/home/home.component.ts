@@ -13,7 +13,7 @@ export class HomeComponent {
   lat: any;
   lng: any;
   cityError: string;
-  @Output() receiveCoordinatesEvent = new EventEmitter<any>();
+  @Output() receiveCoordinatesEvent = new EventEmitter<{"lat":any,"lng":any}>();
   constructor(private GetCityCoordinatesService: GetCityCoordinatesService) { }
 
 
