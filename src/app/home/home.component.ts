@@ -9,15 +9,15 @@ import { cityError } from '../../constants';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  model: any = {};
-  lat: any;
-  lng: any;
+  cityNameModel: string;
+  lat: number;
+  lng: number;
   cityError: string;
-  @Output() receiveCoordinatesEvent = new EventEmitter<{ "lat": any, "lng": any }>();
+  @Output() receiveCoordinatesEvent = new EventEmitter<{ "lat": number, "lng": number }>();
   constructor(private GetCityCoordinatesService: GetCityCoordinatesService) { }
 
   onSubmit() {
-    this.GetCityCoordinatesService.getCoordinates(this.model.cityName).subscribe((res: any) => {
+    this.GetCityCoordinatesService.getCoordinates(this.cityNameModel).subscribe((res: any) => {
       if (res.status === "OK") {
         this.lat = res.results[0].geometry.location.lat;
         this.lng = res.results[0].geometry.location.lng;
